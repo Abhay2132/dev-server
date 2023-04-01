@@ -1,15 +1,23 @@
 {
-  "name": "dev-server",
+  "name": "libe-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "Development Server for frontend with auto reload on file changes",
   "main": "./bin/server.js",
   "bin": {
-    "dev-server": "./bin/server.js"
+    "serve": "bin/server.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "Abhay",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abhay2132/dev-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Abhay2132/dev-server/issues"
+  },
+  "homepage": "https://github.com/Abhay2132/dev-server#readme"
 }

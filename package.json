@@ -7,7 +7,9 @@
     "serve": "bin/server.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ci" : "echo Zero Dependency",
+    "build" : "echo pure js"
   },
   "keywords": [],
   "author": "Abhay",

@@ -6,7 +6,9 @@ const path = require("path")
 const mime = require("./mime")
 
 const port = process.env.PORT || 3000;
-const root = path.join(path.resolve(), process.argv[2] || "");
+const root = path.join(path.resolve(), process.argv.slice(2).filter(a => !a.startsWith("--"))[0] || '');
+const live = process.argv.slice(2).filter(a => a.startsWith("--")).includes("--live");
+
 const dl = process.env.SCREEN_WIDTH || 46; 
 http.createServer((req, res) => {
 	let {url, method} = req;
@@ -42,7 +44,7 @@ function send(res, file) {
 		"Content-Length": file.endsWith("index.html") ? stat.size+injection.length : stat.size
 	});
 	
-	if(file.endsWith("index.html")) {
+	if(live && file.endsWith("index.html")) {
 		return fs.readFile(file, (e, d) => {
 			let txt = d.toString()
 			let html = txt.slice(0, txt.indexOf("</html>")) +
@@ -76,7 +78,8 @@ function watch(dirs, cb) {
 
 const d = {version: 0}
 let lu=0;
-watch([root], (e,f) => {
+
+if(live) watch([root], (e,f) => {
 	let now  = performance.now()
 	if(now-lu<100) return;
 	d.version += 1

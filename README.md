@@ -1,8 +1,15 @@
 # dev-server
 
+Blazing Fast development server with live reload
+
 ```
 npm i -g libe-server
 ```
 
-* why **libe-server** ? because dev-server is already taken by someone 
-* run `serve [dir]` to start server
+### CLI usage : 
+
+run `serve [dir] [option]` to start server
+
+### Options
+
+`--live` : blazing fast live reload using *event-source* api

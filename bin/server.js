@@ -41,7 +41,7 @@ function send(res, file) {
 	
 	res.writeHead(200, {
 		"Content-Type" : type,
-		"Content-Length": file.endsWith("index.html") ? stat.size+injection.length : stat.size
+		"Content-Length": (live && file.endsWith("index.html")) ? stat.size+injection.length : stat.size
 	});
 	
 	if(live && file.endsWith("index.html")) {

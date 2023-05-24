@@ -9,7 +9,7 @@ const port = process.env.PORT || 3000;
 const root = path.join(path.resolve(), process.argv.slice(2).filter(a => !a.startsWith("--"))[0] || '');
 const live = process.argv.slice(2).filter(a => a.startsWith("--")).includes("--live");
 
-const dl = process.env.SCREEN_WIDTH || 46; 
+const dl = process.stdout.columns// || 46; 
 http.createServer((req, res) => {
 	let {url, method} = req;
 	if(method !== "GET") return res.end();

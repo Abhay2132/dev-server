@@ -12,6 +12,7 @@ const live = process.argv.slice(2).filter(a => a.startsWith("--")).includes("--l
 const dl = process.stdout.columns// || 46; 
 http.createServer((req, res) => {
 	let {url, method} = req;
+	url = decodeURI(url);
 	if(method !== "GET") return res.end();
 	if(url == "/es") return require("./eventSource")(req, res,d)
 	log(req, res);
